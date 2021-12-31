@@ -129,7 +129,7 @@ class GuidMiddleware(object):
         :param request: HttpRequest object
         :return: GUID
         """
-        given_guid = str(request.headers.get(settings.GUID_HEADER_NAME))
+        given_guid = str(request.META.get(settings.GUID_HEADER_NAME))
         if not settings.VALIDATE_GUID:
             logger.debug('Returning ID from header without validating it as a GUID')
             return given_guid
@@ -150,7 +150,7 @@ class GuidMiddleware(object):
         :param request: HttpRequest object
         :return: GUID
         """
-        header = request.headers.get(settings.GUID_HEADER_NAME)  # Case insensitive headers.get added in Django2.2
+        header = request.META.get(settings.GUID_HEADER_NAME)
         if header:
             logger.info('%s found in the header: %s', settings.GUID_HEADER_NAME, header)
             request.correlation_id = self._get_correlation_id_from_header(request)

@@ -19,7 +19,7 @@ setup(
     url='https://github.com/JonasKs/django-guid',
     download_url='https://pypi.python.org/pypi/django-guid',
     packages=find_packages(exclude=['']),
-    install_requires=['Django>=2.2'],
+    install_requires=['Django>=1.11'],
     keywords=['django', 'logging', 'request', 'web', 'uuid', 'guid', 'correlation', 'correlation-id'],
     platforms='OS Independent',
     classifiers=[
